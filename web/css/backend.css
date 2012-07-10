@@ -1,0 +1,68 @@
+/**********     reset    **********/
+*
+{
+	font-family: 'Myriad Pro', Arial, 'Sans Serif';
+}
+ul, ol, li, a, div, p, span, h1, h2, h3, h4, h5
+{
+	margin:0;
+	padding:0;
+	list-style-type: none;
+	text-decoration: none;
+	outline: none;
+}
+strong
+{
+	font-weight:normal;
+}
+body
+{
+	margin:0 auto;
+	padding:0;
+	background: url('/images/bg-content.png');
+	padding:10px;
+	width:1200px;
+}
+
+
+/**********     Global    **********/
+.clear
+{
+	clear:both;
+}
+#nav-back
+{
+	width:100%;
+}
+#menu li
+{
+	float:left;
+	list-style-type: none;
+	margin: 10px;
+}
+
+/*
+ * List
+ */
+
+table tr.new td
+{
+	background:#F0FFF0;
+}
+
+/*
+ * Form
+ */
+
+.sf_admin_form #video_code,
+.sf_admin_form #video_description
+{
+	width:400px;
+	height:200px;
+}
+.sf_admin_form
+{
+	width:550px;
+	float:left;
+	margin-right:20px;
+}

@@ -1,0 +1,20 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Jolatefri : toujours plus de vidéos buzz, humour et fun du web
+    description:  Vidéos humour, vidéos buzz les plus recentes. Retrouvez une sélection des vidéos humour et vidéos buzz les plus marrantes du web. Tout est présent sur jolatefri.com pour passer du bon temps et découvrir les buzz du web ! Jolatefri : toujours plus de vidéos !
+    #keywords:     symfony, project
+    language:     fr
+    robots:       index, follow
+
+  stylesheets:    [main.css, shadowbox.css, mTip.css, zocial.css, sticky.min.css]
+
+  javascripts:    [lib/jquery.min.js, lib/jquery.validate.min.js, lib/shadowbox.js, main.js, /ckeditor/ckeditor.js, mTip-v1.0.1.js, jwplayer.js, lib/pagescroller.min.js, lib/sticky.min.js]
+
+  has_layout:     true
+  layout:         layout

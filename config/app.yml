@@ -1,0 +1,13 @@
+all:
+  facebook:
+    app_id:       138964119509027
+    secret:       6ff92d7d57213dfcac7d41cf190a8dba
+  twitter:
+    consumer_key:      pwAAqzPkbS0yrZGzygNaFg
+    consumer_secret:   DjiTV5CUFPkRNoBgj8D98Wz3UmItD5PZuTcSkwuACE
+  
+  score:
+    view_video:        5
+    like_video:        30
+    comment_video:     50    
+    post_friteuse:     100

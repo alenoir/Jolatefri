@@ -1,0 +1,96 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  max_video_page:       15
+  
+  video:
+    pub:
+      - 2600
+      - 1863
+      - 2602
+      - 2117
+      - 2275
+      - 2154
+      - 3076
+      - 3704
+      - 3264
+  coup_coeur:           3704
+  
+  facebook:
+    app_id:             138964119509027
+    api_key:            0592435d93acf05076096809c1337b0d
+    app_secret:         6ff92d7d57213dfcac7d41cf190a8dba
+  twitter:
+    consumer_key:       pwAAqzPkbS0yrZGzygNaFg
+    consumer_secret:    DjiTV5CUFPkRNoBgj8D98Wz3UmItD5PZuTcSkwuACE
+  
+  sf_guard_plugin:
+    remember_key_expiration_age:  2592000   # 30 days in seconds
+    remember_cookie_name:         jolatefriRememberMe
+    
+  sfSimpleGoogleSitemap:
+    orm:                  Doctrine                   # possible values: auto, Propel, Doctrine, DbFinder. 'auto' is auto detection. Note: case sensitive!
+    urls:                                        # define multiple static urls here
+      homepage:                                  # just a name
+        url:              http://www.jolatefri.com    # full URL, e.g.: with http:// prefix
+        freq:             daily                  # must be either: always, hourly, daily, weekly, monthly, yearly, never
+        priority:         1.0                    # 1.0 is top priority (100%) compared to 0.2 which is less priority (20%)
+    models:                                      # define multiple models to generate sitemap from
+      video:                               # just a name
+        model:            Video       # model class name
+        module:           video           # name of module for the url to make up the url
+        action:           index                   # name of action for the url to make up the url
+        routing:          "@video_show"           # use routing for the URLs in the sitemap
+        params:                                  # parameters for the url
+          title: getSlugTitle       # name : method to get the parameter value
+          id: getId
+          category: getCategory
+        date:             getLastMod           # method to get date last updated for the url
+        criteria:                                # criterias to filter the records to include in the sitemap
+          - { column: is_activated, method: IsActivated, operator: = , value: 1 }
+          - { column: slug, method: slug, operator: = , value: '' }
+        order_by: { column: id, method: Id, sort: desc }
+        limit:            1000                     # limit to the first x number of records
+        freq:             weekly                  # must be either: always, hourly, daily, weekly, monthly, yearly, never
+        priority:         0.8                    # 1.0 is top priority (100%) compared to 0.5 which is less priority (50%)
+      video_new:                               # just a name
+        model:            Video       # model class name
+        module:           video           # name of module for the url to make up the url
+        action:           index                   # name of action for the url to make up the url
+        routing:          "@video_show_new"           # use routing for the URLs in the sitemap
+        params:                                  # parameters for the url
+          slug: getSlug       # name : method to get the parameter value
+          category: getCategory
+        date:             getLastMod           # method to get date last updated for the url
+        criteria:                                # criterias to filter the records to include in the sitemap
+          - { column: is_activated, method: IsActivated, operator: = , value: 1 }
+          - { column: slug, method: slug, operator: != , value: '' }
+        order_by: { column: id, method: Id, sort: desc }
+        limit:            1000                     # limit to the first x number of records
+        freq:             weekly                  # must be either: always, hourly, daily, weekly, monthly, yearly, never
+        priority:         0.8                    # 1.0 is top priority (100%) compared to 0.5 which is less priority (50%)
+      category:                               # just a name
+        model:            Category       # model class name
+        module:           category           # name of module for the url to make up the url
+        action:           index                   # name of action for the url to make up the url
+        routing:          "@video_list_category"           # use routing for the URLs in the sitemap
+        params:                                  # parameters for the url
+          category: getName       # name : method to get the parameter value
+        limit:            1000                     # limit to the first x number of records
+        freq:             daily                  # must be either: always, hourly, daily, weekly, monthly, yearly, never
+        priority:         0.5                    # 1.0 is top priority (100%) compared to 0.5 which is less priority (50%)
+      category:                               # just a name
+        model:            Friteuse       # model class name
+        module:           friteuse           # name of module for the url to make up the url
+        action:           index                   # name of action for the url to make up the url
+        routing:          "@friteuse_show_new"           # use routing for the URLs in the sitemap
+        params:                                  # parameters for the url
+          slug: getSlug       # name : method to get the parameter value
+        date:             getLastMod           # method to get date last updated for the url
+        criteria:                                # criterias to filter the records to include in the sitemap
+          - { column: slug, method: IsActivated, operator: != , value: '' }
+        limit:            1000                     # limit to the first x number of records
+        freq:             daily                  # must be either: always, hourly, daily, weekly, monthly, yearly, never
+        priority:         0.5                    # 1.0 is top priority (100%) compared to 0.5 which is less priority (50%)

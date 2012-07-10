@@ -1,0 +1,57 @@
+# Règles d'écritures d'url ci-dessous
+Options +FollowSymlinks
+RewriteEngine on
+
+# mise en place du php5
+SetEnv PHP_VER 5
+
+# Règles de réécritures spécifiques pour l'affichage des pages
+RewriteRule ^page-(\d+)$  index.php?page=accueil&noPage=$1 [L]
+
+# Règles de réécritures spécifiques pour l'affichage des vidéos
+RewriteRule ^(\w+)/video/(\d+)/(\w+)  index.php?page=video&id=$2 [L]
+
+# Règles de réécritures spécifiques pour l'affichage des vidéos
+RewriteRule ^(\w+)-(\d+)  index.php?page=video&id=$2 [L]
+
+# Règles de réécritures spécifiques pour l'affichage du profil
+RewriteRule ^membre/(\w+)$  index.php?page=profil&pseudo=$1 [L]
+
+# Règles de réécritures spécifiques pour les membres
+RewriteRule ^membres$  index.php?page=membres [L]
+
+# Règles de réécritures spécifiques pour l'inscription
+RewriteRule ^inscription$  index.php?page=inscription [L]
+
+# Règles de réécritures spécifiques pour l'affichage des catégories
+RewriteRule ^(\w+)/(\w+)/page-(\d+)$  index.php?page=accueil&categorie=$1&classement=$2&noPage=$3 [L]
+RewriteRule ^(\w+)/(\w+)$  index.php?page=accueil&categorie=$1&classement=$2 [L]
+
+# Règles de réécritures spécifiques pour l'affichage des tris
+RewriteRule ^(\w+)/page-(\d+)$  index.php?page=accueil&classement=$1&noPage=$2 [L]
+RewriteRule ^(\w+)$  index.php?page=accueil&classement=$1 [L]
+
+# Règles de réécritures spécifiques pour la connexion
+RewriteRule ^connexion$  index.php?page=connexion [L]
+
+# Règles de réécritures spécifiques pour les nouveaux commentaires
+RewriteRule ^reponse-comentaire$  index.php?page=newcommentaire [L]
+
+# Règles de réécritures spécifiques pour poster du contenu
+RewriteRule ^poster-du-contenu/(\w+)$  index.php?page=postercontenu&mode=$1 [L]
+RewriteRule ^poster-du-contenu$  index.php?page=postercontenu [L]
+
+# Règles de réécritures spécifiques pour modifier un post
+RewriteRule ^modifier-le-post/(\d+)/(\w+)  index.php?page=modifPost&id=$1 [L]
+
+# Règles de réécritures spécifiques pour modifier le profil
+RewriteRule ^mon-compte$  index.php?page=modifProfil [L]
+
+# Règles de réécritures spécifiques pour les messages
+RewriteRule ^messagerie/boite-de-reception$  index.php?page=inbox [L]
+
+# Règles de réécritures de la page d'erreur 404
+RewriteRule ^erreur404$   pages/erreur404.php
+
+# Erreur 404
+ErrorDocument 404 http://www.jolatefri.com/erreur404.html

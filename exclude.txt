@@ -1,0 +1,8 @@
+sources
+log/*
+cache/*
+data/*
+config/databases.yml
+web/.htaccess
+web/htaccess_prod.txt
+web/robots.txt

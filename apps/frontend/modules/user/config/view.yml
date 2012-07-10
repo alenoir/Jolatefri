@@ -1,0 +1,17 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    language:     fr
+    robots:       index, follow
+
+  stylesheets:    [friteuse.css]
+
+#  javascripts:    [lib/jquery.min.js, lib/shadowbox.js, main.js, /ckeditor/ckeditor.js]
+
+  has_layout:     true
+  layout:         friteuse_layout
+  
+showSuccess:
+  layout:         user_layout

@@ -1,0 +1,227 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# # # # # # # User # # # # # # # 
+
+user_settings:
+  url: /profil
+  param: { module: user, action: edit }
+  
+# # # # # # # ajax # # # # # # # 
+
+ajax_facebook_connect:
+  url: /ajax_facebook_connect
+  param: { module: user, action: ajaxFacebookConnect }
+  
+ajax_facebook_like:
+  url: /ajax_facebook_like
+  param: { module: user, action: ajaxFacebookLike }
+  
+ajax_facebook_comment:
+  url: /ajax_facebook_comment
+  param: { module: user, action: ajaxFacebookComment }
+
+# # # # # # # Facebook # # # # # # # 
+
+check_facebook_sign_in:
+  url: /check_facebook_sign_in
+  param: { module: user, action: checkFacebookSignIn }
+
+set_username:
+  url: /set-username
+  param: { module: user, action: setUsername }
+  
+# # # # # # # Twitter # # # # # # # 
+
+callback_twitter_connect:
+  url: /twitter-connect
+  param: { module: user, action: twitterConnect }
+
+
+# # # # # # # Feeds # # # # # # # 
+
+sitemap_video:
+  url: /sitemap-video
+  param: { module: feed, action: sitemapVideo }
+
+gsitemap:
+  url: /gsitemap
+  param: { module: sfSimpleGoogleSitemap, action: index }
+
+feed:
+  url: /feed
+  param: { module: feed, action: index }
+  
+# # # # # # # Friteuse # # # # # # # 
+
+friteuse_random:
+  url: /friteuse/aleatoire
+  param: { module: friteuse, action: random }
+  
+friteuse:
+  url: /friteuse/:page
+  param: { module: friteuse, action: index, page: 1 }
+  requirements:
+    page: \d+
+
+friteuse_show_new:
+  url: /friteuse/:slug
+  class:   sfDoctrineRoute
+  options: { model: Friteuse, type: object, column: slug }
+  param:   { module: friteuse, action: show }
+  
+friteuse_show:
+  url: /friteuse/:id/:title
+  param: { module: friteuse, action: show }
+  
+ajax_friteuse_add:
+  url: /ajax_friteuse_add/:type
+  param: { module: friteuse, action: ajaxFriteuseAdd }
+
+### sfDoctrine Guard ###
+  
+sf_guard_signin:
+  url:   /login
+  param: { module: user, action: signin }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfGuardAuth, action: password }
+  
+sf_guard_register:
+  url:   /inscription
+  param: { module: sfGuardRegister, action: index }
+  
+sf_guard_forgot_password:
+  url:   /mot-de-passe-oublie
+  param: { module: sfGuardForgotPassword, action: index }
+
+user_edit:
+  url: /membre/edit/:id
+  param: { module: user, action: edit }
+  
+user_show:
+  url: /membre/:idUser/:username
+  param: { module: user, action: show }
+  
+
+# # # # # # # Video # # # # # # # 
+
+
+video_list_best_like:
+  url: /videos/mieux-notees/:filter/:page
+  param: { module: video, action: bestLike, filter: all, page: 1 }
+
+video_list_best_comment:
+  url: /videos/plus-commentees/:filter/:page
+  param: { module: video, action: bestComment, filter: all, page: 1 }
+
+video_list_best_vue:
+  url: /videos/plus-vues/:filter/:page
+  param: { module: video, action: bestVue, filter: all, page: 1 }
+
+video_list:
+  url: /videos
+  param: { module: video, action: index }
+
+video_list_pager:
+  url: /videos/:page
+  param: { module: video, action: index, page: 1 }
+
+
+  
+
+
+video_show:
+  url: /:category/video/:id/:title
+  param: { module: video, action: show }
+
+image_show:
+  url: /:category/image/:id/:title
+  param: { module: video, action: show }
+  
+video_new:
+  url: /nouveau-contenu/video
+  param: { module: video, action: newVideo }
+
+image_new:
+  url: /nouveau-contenu/image
+  param: { module: video, action: newImage }
+
+portail_new:
+  url: /nouveau-contenu
+  param: { module: video, action: newPortail }
+ 
+video_edit:
+  url: /edit-video/:id
+  param: { module: video, action: edit }
+  
+video_list_category:
+  url: /:category
+  param: { module: video, action: index }
+
+video_list_category_pager:
+  url: /:category/page/:page
+  param: { module: video, action: index }
+  
+video_list_order:
+  url: /videos/:order
+  param: { module: video, action: index }
+
+video_list_order_pager:
+  url: /videos/:order/page/:page
+  param: { module: video, action: index }
+
+video_facebook:
+  url: /facebook
+  param: { module: video, action: facebook }
+
+video_search:
+  url:   /recherche/
+  param: { module: video, action: search }
+  
+video_search_get:
+  url:   /recherche/:query
+  param: { module: video, action: search }
+
+# # # # # # # Commentaire # # # # # # # 
+
+
+commentaire_new_video:
+  url: /commentaire/new
+  param: { module: commentaire, action: formCommentaireVideo }
+  
+commentaire_list_video:
+  url: /commentaire/list/video
+  param: { module: commentaire, action: listCommentaireVideo }
+
+
+video_show_new:
+  url: /:category/:slug
+  class:   sfDoctrineRoute
+  options: { model: Video, type: object, column: slug }
+  param:   { module: video, action: show }
+  
+# default rules
+homepage:
+  url:   /
+  param: { module: video, action: index }
+  
+
+
+error404:
+  url: /error404
+  param: { module: main, action: error404 }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

@@ -1,0 +1,206 @@
+*{
+	padding : 0;
+	margin : 0;
+	border : 0;
+	font-family : Verdana, Sans Serif; 
+	
+ }
+ 
+body{
+	background-color: #FFFFFF;
+	margin : auto;
+	}
+	
+a 
+{
+	color: #333333;
+	text-decoration:none
+}     /* lien non-visité */
+a:visited {color: #333333}  /* lien visité */
+a:hover {color: #999999}   /* lien au survol */
+a:active {color: #003366}   /* lien sélectionné */
+li 
+{
+	padding-left : 30px;
+	list-style-type: none;
+}
+ul
+{
+	margin-top : 10px;
+	margin-bottom : 10px;
+}
+#nav{
+	width: 1024px;
+	margin: auto;
+	}
+
+p{
+	color: #333333;
+   font-size: 14px; 
+  }
+
+h1{
+	font-family : Trebuchet MS, Verdana, Sans Serif; 
+	font-size: 80px;
+	color: #333333;
+	margin-top : 10px;
+}
+
+h2{
+	font-size: 25px;
+	color: #333333;
+	margin-top : 15px;
+	}
+h3{
+	font-size: 20px;
+	color: #333333;
+	margin-bottom : 15px;
+	margin-top : 15px;
+	}
+h4{
+	font-size: 16px;
+	color: #333333;
+	margin-bottom : 15px;
+	margin-top : 15px;
+	}
+#entete{
+	width : 1024px;
+	margin : auto;
+	text-decoration:none;
+	}
+#menu a{
+	color : white;
+	font-size : 11px;
+	font-weight : bold;
+	}
+#menu a:hover {
+	color : #c8c8c8;
+	
+	}
+.last_menu
+{
+	width : 500px;
+}
+#menu
+{
+	color : white;
+	width : 1014px;
+	height : 20px;
+	background-color : #333333;
+	font-family : Trebuchet MS, Verdana, Sans Serif;
+	padding-left : 10px;
+}
+#contenu{
+	width: 800px;
+	text-align: justify;
+	min-height : 300px;
+}
+#contenu_creation{
+	width: 800px;
+	text-align: justify;
+	min-height : 400px;
+}
+#contenu p{
+   font-size: 14px; 
+	margin-top : 10px;
+}
+#contenu_cv{
+	width: 800px;;
+	text-align: justify;
+	min-height : 300px;
+}
+#contenu_cv p{
+	color: #666666;
+    font-size: 14px; 
+	margin-top : 10px;
+	margin-left : 30px;
+}
+#contenu_cv a:hover {color: #999999}
+#contenu_cv a{
+	color: #666666;
+    font-size: 14px; 
+}
+#contenu_cv li{
+	color: #666666;
+    font-size: 14px; 
+	margin-left : 50px;
+}
+#actualites
+{
+	float : left;
+	width : 800px;
+}
+#perso p
+{
+	margin-left : 20px;
+	margin-right : 20px;
+	text-align: justify;
+}
+#perso img
+{
+	width : 100px;
+	margin-left : 50px;
+	margin-bottom : 30px;
+}
+#perso
+{
+	width : 200px;
+	height : 33px;
+	float : right;
+}
+.separate
+{
+	height : 3px;
+	margin-bottom : 20px;
+	background-color : #333333;
+	border:1px solid #07acff;
+}
+.selec{
+	color: #c8c8c8;
+	font-size : 11px;
+	font-weight : bold;
+	}
+
+.blanc{
+	text-decoration: none;
+	color: #ffffff;
+	}
+.designSite{
+	width : 700px;
+}
+div.nav{
+	text-align : center;
+	margin-left: auto;
+    margin-right: auto;
+	}
+#active_menu
+{
+	background-color : #666666;
+	width : 57px;
+	height : 5px;
+
+	position : relative;
+	left : 410px;
+}
+#banniere_flash
+{
+	display : none;
+}
+#site_jolatefri
+{
+	display : none;
+}
+#site_macsifacile
+{
+	display : none;
+}
+#design_portfolio
+{
+	display : none;
+}
+.img_float
+{
+	float : left;
+	max-width : 300px;
+	max-height : 300px;
+}

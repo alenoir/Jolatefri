@@ -1,0 +1,17 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        La friteuse de Jolatefri !
+    description:  Partagez vos liens, photos et vidéos sur la friteuse de Jolatefri.com.
+    #keywords:     symfony, project
+    language:     fr
+    robots:       index, follow
+
+  stylesheets:    [friteuse.css, lib/sticky.min.css]
+
+#  javascripts:    [lib/jquery.min.js, lib/shadowbox.js, main.js, /ckeditor/ckeditor.js]
+
+  has_layout:     true
+  layout:         friteuse_layout

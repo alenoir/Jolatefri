@@ -1,0 +1,356 @@
+## Vidéos ##
+
+Category:
+  columns:
+    name:
+      type: string(255)
+      notnull: true
+ 
+Video:
+
+  actAs:
+    Timestampable: ~
+    
+  columns:
+    
+    title:
+      type: string(1000)
+      notnull: true
+      
+    description:
+      type: string(1000)
+      
+    thumbnail:
+      type: string(1000)
+    
+    code:
+      type: string(1000)
+    
+    nbVue:
+      type: integer
+      default: 0
+      
+    nbLike:
+      type: integer
+      default: 0 
+    
+    nbComment:
+      type: integer
+      default: 0 
+    
+    mode:
+      type: integer
+      default: 0 
+      
+    slug:
+      type: string(1000)
+
+    is_activated:
+      type: integer
+      notnull: true
+      default: 0
+      
+    category_id:
+      type: integer
+      notnull: true
+
+    user_id:
+      type: integer
+      notnull: true
+
+  relations:
+  
+    Category:
+      class: Category
+      local: category_id
+      foreign: id
+      
+    Users:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      foreignAlias: Video
+
+Images:
+  actAs:
+    Timestampable: ~
+    
+  columns:
+    
+    name:
+      type: string(1000)
+      notnull: true
+    
+    priority:
+      type: string(1000)
+      notnull: true
+    
+    video_id:
+      type: integer
+      notnull: true
+      
+  relations:
+  
+    Video:
+      class: video
+      local: video_id
+      foreign: id
+      foreignAlias: Images
+      
+Comment:
+  
+  actAs:
+    Timestampable: ~
+    
+  columns:
+    
+    fb_id:
+      type: string(1000)
+      notnull: true
+      
+    username:
+      type: string(1000)
+      notnull: true
+      
+    message:
+      type: string(1000)
+      notnull: true
+      
+    video_id:
+      type: integer
+      notnull: true
+    
+  relations:
+      
+    Video:
+      class: Video
+      local: video_id
+      foreign: id
+      foreignAlias: Commentaire
+      onDelete : Cascade
+      
+# User #
+
+sfGuardUserProfile:
+  
+  inheritance:
+    extends: sfGuardUser
+    
+    type: column_aggregation
+    
+  columns:
+    
+    gender:
+      type: integer(1)
+    
+    photo:
+      type: string(10000)
+      
+    website:
+      type: string(255)
+      
+    city:
+      type: string(255)
+      
+    birthday:
+      type: date
+      
+    about:
+      type: string(10000)
+    
+    interest:
+      type: string(10000)
+    
+    comment:
+      type: integer
+    
+    score:
+      type: integer
+
+    facebook_id:
+      type: string(255)
+      
+    twitter_id:
+      type: string(255)
+
+Search:
+  actAs:
+    Timestampable: ~
+    
+  columns:
+
+    content:
+      type: string(10000)
+
+Friteuse:
+  actAs:
+    Timestampable: ~
+    
+  columns:
+    
+    title:
+      type: string(1000)
+      notnull: true
+      
+    image:
+      type: string(1000)
+    
+    code:
+      type: string(1000)
+    
+    type:
+      type: string(10)
+    
+    nbVue:
+      type: integer
+      default: 0
+    
+    slug:
+      type: string(1000)
+    
+    user_id:
+      type: integer
+      notnull: true
+    
+  relations:
+      
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      foreignAlias: friteuse
+      onDelete : Cascade
+  
+
+User_view_video:
+  actAs:
+    Timestampable: ~
+    
+  columns:
+    
+    user_id:
+      type: integer
+      notnull: true
+      
+    video_id:
+      type: integer
+      notnull: true
+    
+  relations:
+      
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      foreignAlias: ViewVideos
+      onDelete : Cascade
+      
+    Video:
+      class: Video
+      local: video_id
+      foreign: id
+      foreignAlias: UserViews
+      onDelete : Cascade
+
+User_like_video:
+  actAs:
+    Timestampable: ~
+    
+  columns:
+    
+    user_id:
+      type: integer
+      notnull: true
+      
+    video_id:
+      type: integer
+      notnull: true
+    
+  relations:
+      
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      foreignAlias: ViewVideos
+      onDelete : Cascade
+      
+    Video:
+      class: Video
+      local: video_id
+      foreign: id
+      foreignAlias: UserLikes
+      onDelete : Cascade
+
+User_view_friteuse:
+  actAs:
+    Timestampable: ~
+    
+  columns:
+    
+    user_id:
+      type: integer
+      notnull: true
+      
+    friteuse_id:
+      type: integer
+      notnull: true
+    
+  relations:
+      
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      foreignAlias: ViewFriteuses
+      onDelete : Cascade
+      
+    Friteuse:
+      class: Friteuse
+      local: friteuse_id
+      foreign: id
+      foreignAlias: UserViews
+      onDelete : Cascade
+
+User_like_friteuse:
+  actAs:
+    Timestampable: ~
+    
+  columns:
+    
+    user_id:
+      type: integer
+      notnull: true
+      
+    friteuse_id:
+      type: integer
+      notnull: true
+    
+  relations:
+      
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      foreignAlias: ViewFriteuses
+      onDelete : Cascade
+      
+    Friteuse:
+      class: Friteuse
+      local: friteuse_id
+      foreign: id
+      foreignAlias: UserLikes
+      onDelete : Cascade        
+
+Config:
+  actAs:
+    Timestampable: ~
+    
+  columns:
+    
+    name:
+      type: string(1000)
+      notnull: true
+      
+    content:
+      type: string(1000)

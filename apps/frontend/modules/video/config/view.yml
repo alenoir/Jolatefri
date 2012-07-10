@@ -1,0 +1,9 @@
+facebookSuccess:
+  has_layout:     true
+  layout:         layout_facebook
+showSuccess:
+  has_layout:     true
+  layout:         layout_video
+#landingSuccess:
+#  has_layout:     true
+#  layout:         layoutLanding
